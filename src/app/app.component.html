@@ -5,12 +5,15 @@
     <ion-row>
       <ion-col size-lg="4" offset-lg="4">
         <ion-item color="light" lines="none">
-          <ion-segment color="dark">
-            <ion-segment-button value="friends">
+          <ion-segment color="dark" value="individual">
+            <ion-segment-button value="individual">
               <ion-label>Individual</ion-label>
             </ion-segment-button>
-            <ion-segment-button value="enemies">
-              <ion-label>Kit</ion-label>
+            <ion-segment-button value="kit" disabled>
+              <ion-label>
+                <p>Kit</p>
+                <small>(em breve)</small>
+              </ion-label>
             </ion-segment-button>
           </ion-segment>
         </ion-item>
@@ -35,17 +38,23 @@
             <ion-label position="floating">
               Preço por pacote
             </ion-label>
-            <ion-input></ion-input>
+            <ion-input type="number"></ion-input>
+            <ion-note slot="end" class="error" *ngIf="error">
+              Campo obrigatório
+            </ion-note>
           </ion-item>
           <ion-item class="ion-align-items-center">
             <ion-icon name="layers-outline" slot="start"></ion-icon>
             <ion-label position="floating">
               Fraldas por pacote
             </ion-label>
-            <ion-input></ion-input>
+            <ion-input type="number"></ion-input>
+            <ion-note slot="end" class="error" *ngIf="error">
+              Campo obrigatório
+            </ion-note>
           </ion-item>
 
-          <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab vertical="top" horizontal="end" slot="fixed">
             <ion-fab-button color="warning">
               <ion-icon name="add"></ion-icon>
             </ion-fab-button>

@@ -18,3 +18,9 @@ ion-segment {
   font-weight: bold;
   font-size: larger;
 }
+
+.error {
+  text-align: right;
+  font-size: small;
+  color: var(--ion-color-danger)
+}

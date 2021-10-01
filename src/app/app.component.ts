@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {}
 
+  error = true;
+
   items: any[] = [
     {name: "Pampers", price: 45, quantity: 40},
     {name: "Pompo", price: 47, quantity: 38}
