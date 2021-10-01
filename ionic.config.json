@@ -1,0 +1,7 @@
+{
+  "name": "calculakids",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
