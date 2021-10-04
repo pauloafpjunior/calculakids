@@ -1,26 +1,5 @@
-ion-content {
-  --background: var(--ion-color-light);
-}
-
-.container {
-  border-radius: 20px;
-  margin: 12px;
-  background-color: white;
-}
-
 ion-segment {
   margin-top: 20px;
   --background: var(--ion-color-light);
   border-radius: 20px;
-}
-
-.thebestone {
-  font-weight: bold;
-  font-size: larger;
-}
-
-.error {
-  text-align: right;
-  font-size: small;
-  color: var(--ion-color-danger)
 }
