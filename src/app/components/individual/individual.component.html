@@ -1,33 +1,37 @@
 <ion-list lines="none" class="container">
-  <ion-item class="ion-align-items-center">
-    <ion-icon name="information-outline" slot="start"></ion-icon>
-    <ion-label position="floating">
-      Marca (opcional)
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="trademark"></ion-input>
-  </ion-item>
-  <ion-item class="ion-align-items-center">
-    <ion-icon name="cash-outline" slot="start"></ion-icon>
-    <ion-label position="floating">
-      Preço por pacote
-    </ion-label>
-    <ion-input type="number" [(ngModel)]="price"></ion-input>
-  </ion-item>
+  <form (ngSubmit)="onAdd()">
+    <ion-item class="ion-align-items-center">
+      <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+      <ion-label position="floating">
+        Marca (opcional)
+      </ion-label>
+      <ion-input type="text" name="trademark" [(ngModel)]="trademark" #inputTrademark (keyup.arrowdown)="inputPrice.setFocus()"></ion-input>
+    </ion-item>
+    <ion-item class="ion-align-items-center">
+      <ion-icon name="cash-outline" slot="start"></ion-icon>
+      <ion-label position="floating">
+        Preço por pacote
+      </ion-label>
+      <ion-input inputmode="numeric" name="price" [(ngModel)]="price"  #inputPrice (keyup.arrowup)="inputTrademark.setFocus()" (keyup.arrowdown)="inputQuantity.setFocus()"></ion-input>
+    </ion-item>
 
 
-  <ion-item class="ion-align-items-center">
-    <ion-icon name="layers-outline" slot="start"></ion-icon>
-    <ion-label position="floating">
-      Fraldas por pacote
-    </ion-label>
-    <ion-input type="number" [(ngModel)]="quantity"></ion-input>
-  </ion-item>
+    <ion-item class="ion-align-items-center">
+      <ion-icon name="layers-outline" slot="start"></ion-icon>
+      <ion-label position="floating">
+        Fraldas por pacote
+      </ion-label>
+      <ion-input inputmode="numeric" name="quantity" [(ngModel)]="quantity" #inputQuantity (keyup.arrowup)="inputPrice.setFocus()"></ion-input>
+    </ion-item>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="warning" (click)="onAdd()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+    <input type="submit" hidden />
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="warning" (click)="onAdd()">
+        <ion-icon name="calculator-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
 </ion-list>
 
 <ion-item class="container ion-text-center" *ngIf="products?.length == 0" lines="none">

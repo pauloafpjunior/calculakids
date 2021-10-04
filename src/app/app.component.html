@@ -27,7 +27,7 @@
         <app-individual *ngIf="isIndividual"></app-individual>
 
         <div class="container ion-text-center">
-          <ion-button fill="clear" color="dark" shape="round">
+          <ion-button fill="clear" color="dark" shape="round" (click)="share()">
             <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
             Gostou? Então compartilha!!
           </ion-button>

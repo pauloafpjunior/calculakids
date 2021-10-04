@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonInput, ToastController } from '@ionic/angular';
 import { Product } from 'src/app/model/product';
-import { Ranking } from 'src/app/model/ranking';
+import { Ranking } from 'src/app/services/ranking';
+import { Toast } from 'src/app/services/toast';
 
 @Component({
   selector: 'app-individual',
@@ -10,7 +11,7 @@ import { Ranking } from 'src/app/model/ranking';
 })
 export class IndividualComponent implements OnInit {
 
-  constructor(private toastCtrl: ToastController, private ranking: Ranking) { }
+  constructor(private toastCtrl: Toast, private ranking: Ranking) { }
 
   trademark: string = null;
   price: number = null;
@@ -34,14 +35,17 @@ export class IndividualComponent implements OnInit {
 
 
   async onAdd() {
+
+    console.log(this.trademark, this.price, this.quantity)
+
     const error = this.ranking.addProduct(this.trademark, this.price, this.quantity);
 
     if (error) {
-      await this.showMessage(error.message, 'error');
+      await this.toastCtrl.showMessage(error.message, 'error');
     } else {
       this.cleanForm();
       this.updateProducts();
-      await this.showMessage("Adicionado!", 'success');
+      await this.toastCtrl.showMessage("Adicionado!", 'success');
     }
   }
 
@@ -51,27 +55,6 @@ export class IndividualComponent implements OnInit {
 
   get theBestOne(): Product {
     return this.products.length > 0 ? this.products[0] : null;
-  }
-
-  async showMessage(message: string, type: 'error' | 'success') {
-    const previousToast = await this.toastCtrl.getTop();
-    if (previousToast) {
-      await this.toastCtrl.dismiss();
-    }
-
-    const toast = await this.toastCtrl.create(
-      {
-        message: message,
-        duration: 2000,
-        cssClass: `toast-${type}`,
-        buttons: [
-          {
-            text: 'Fechar'
-          }
-        ]
-      }
-    );
-    toast.present();
   }
 
 }
