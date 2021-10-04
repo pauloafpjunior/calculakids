@@ -14,7 +14,7 @@ export class IndividualComponent implements OnInit {
   constructor(private toastCtrl: Toast, private ranking: Ranking) { }
 
   trademark: string = null;
-  price: number = null;
+  priceStr: string = null;
   quantity: number = null;
 
   products: Product[] = [];
@@ -25,7 +25,7 @@ export class IndividualComponent implements OnInit {
 
   cleanForm() {
     this.trademark = null;
-    this.price = null;
+    this.priceStr = null;
     this.quantity = null;
   }
 
@@ -35,10 +35,9 @@ export class IndividualComponent implements OnInit {
 
 
   async onAdd() {
+    const price = Number(this.priceStr.replace('.', '').replace(',', '.'));
 
-    console.log(this.trademark, this.price, this.quantity)
-
-    const error = this.ranking.addProduct(this.trademark, this.price, this.quantity);
+    const error = this.ranking.addProduct(this.trademark, price, this.quantity);
 
     if (error) {
       await this.toastCtrl.showMessage(error.message, 'error');
