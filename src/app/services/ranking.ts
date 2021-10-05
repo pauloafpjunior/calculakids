@@ -12,13 +12,13 @@ export class Ranking {
     this._products = [];
   }
 
-  public addProduct(trademark: string, price: number, quantity: number): Error {
+  public addProduct(trademark: string, price: number, quantity: number): void {
     if (!price || price <= 0) {
-      return new Error('Preço inválido!')
+      throw new Error('Preço inválido!')
     }
 
     if (!quantity || quantity <= 0) {
-      return new Error('Quantidade inválida!')
+      throw new Error('Quantidade inválida!')
     }
 
     if (!trademark || trademark.trim().length === 0) {

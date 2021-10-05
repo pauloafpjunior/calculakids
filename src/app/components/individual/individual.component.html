@@ -10,7 +10,7 @@
     <ion-item class="ion-align-items-center">
       <ion-icon name="cash-outline" slot="start"></ion-icon>
       <ion-label position="floating">
-        Preço por pacote
+        Preço
       </ion-label>
       <ion-input inputmode="numeric" [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: 2}" name="priceStr" [(ngModel)]="priceStr"  #inputPrice (keyup.arrowup)="inputTrademark.setFocus()" (keyup.arrowdown)="inputQuantity.setFocus()"></ion-input>
     </ion-item>
@@ -19,7 +19,7 @@
     <ion-item class="ion-align-items-center">
       <ion-icon name="layers-outline" slot="start"></ion-icon>
       <ion-label position="floating">
-        Fraldas por pacote
+        Quantidade de fraldas
       </ion-label>
       <ion-input inputmode="numeric" name="quantity" [(ngModel)]="quantity" #inputQuantity (keyup.arrowup)="inputPrice.setFocus()"></ion-input>
     </ion-item>

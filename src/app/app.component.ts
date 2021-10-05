@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Share } from '@capacitor/share';
+import { Platform } from '@ionic/angular';
 import { Toast } from './services/toast';
 
 
@@ -14,7 +15,7 @@ export class AppComponent {
 
   option: 'individual' | 'kit';
 
-  constructor(private toastCtrl: Toast) {
+  constructor(private toastCtrl: Toast, private platform: Platform) {
     this.option = 'individual';
   }
 
@@ -27,12 +28,16 @@ export class AppComponent {
       await Share.share({
         title: 'CalculaKids',
         text: 'Economize dinheiro com esse aplicativo',
-        url: 'https://calculakids.com',
+        url: 'https://calculakids.web.app/',
         dialogTitle: 'Compartilhe com seus amigos',
       });
 
     } catch (error) {
       this.toastCtrl.showMessage('Erro ao compartilhar!', 'error');
     }
+  }
+
+  get isShareable(): boolean {
+    return this.platform.is('mobileweb');
   }
 }

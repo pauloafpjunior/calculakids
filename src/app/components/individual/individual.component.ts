@@ -35,16 +35,15 @@ export class IndividualComponent implements OnInit {
 
 
   async onAdd() {
-    const price = Number(this.priceStr.replace('.', '').replace(',', '.'));
-
-    const error = this.ranking.addProduct(this.trademark, price, this.quantity);
-
-    if (error) {
-      await this.toastCtrl.showMessage(error.message, 'error');
-    } else {
+    try {
+      const price = Number(this.priceStr.replace('.', '').replace(',', '.'));
+      this.ranking.addProduct(this.trademark, price, this.quantity);
       this.cleanForm();
       this.updateProducts();
       await this.toastCtrl.showMessage("Adicionado!", 'success');
+    } catch {
+      await this.toastCtrl.showMessage('Informe o preço e a quantidade!', 'error');
+
     }
   }
 
