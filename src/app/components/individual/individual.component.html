@@ -19,7 +19,7 @@
     <ion-item class="ion-align-items-center">
       <ion-icon name="layers-outline" slot="start"></ion-icon>
       <ion-label position="floating">
-        Quantidade de fraldas
+        Quantidade
       </ion-label>
       <ion-input inputmode="numeric" name="quantity" [(ngModel)]="quantity" #inputQuantity (keyup.arrowup)="inputPrice.setFocus()"></ion-input>
     </ion-item>
@@ -35,7 +35,7 @@
 </ion-list>
 
 <ion-item class="container ion-text-center" *ngIf="products?.length == 0" lines="none">
-  <ion-label color="medium">Clique em ✚ para adicionar um produto</ion-label>
+  <ion-label class="ion-text-wrap" color="medium">Informe preço e quantidade. Depois, clique no botão acima</ion-label>
 </ion-item>
 
 <ion-item color="success" class="container ion-align-items-center" lines="none" *ngIf="theBestOne">

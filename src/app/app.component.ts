@@ -40,4 +40,8 @@ export class AppComponent {
   get isShareable(): boolean {
     return this.platform.is('mobileweb');
   }
+
+  get today() {
+    return new Date();
+  }
 }
