@@ -58,7 +58,7 @@ export class AppComponent {
       await this.toastCtrl.showMessage('Adicionado!', 'success');
     } catch {
       await this.toastCtrl.showMessage(
-        'Favor informar preço e quantidade!',
+        'Informe preço e quantidade!',
         'error'
       );
     }
@@ -76,7 +76,7 @@ export class AppComponent {
     try {
       await Share.share({
         title: 'CalculaKids',
-        text: 'Economize com o aplicativo CalculaKids: ',
+        text: 'Economize com o CalculaKids: ',
         url: 'https://calculakids.web.app/',
         dialogTitle: 'Compartilhe com seus amigos',
       });

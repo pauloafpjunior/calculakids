@@ -18,15 +18,18 @@
                 type="text"
                 name="trademark"
                 [(ngModel)]="trademark"
-                #inputTrademark
-                (keyup.arrowdown)="inputPrice.setFocus()"
               ></ion-input>
             </ion-item>
 
             <ion-item class="ion-align-items-center">
               <ion-icon name="layers-outline" slot="start"></ion-icon>
               <ion-label position="floating"> Pacotes </ion-label>
-              <ion-select name="packages" [(ngModel)]="packages" [interfaceOptions]="customPopoverOptions" interface="popover" >
+              <ion-select
+                name="packages"
+                [(ngModel)]="packages"
+                [interfaceOptions]="customPopoverOptions"
+                interface="popover"
+              >
                 <ion-select-option
                   [value]="n"
                   *ngFor="
@@ -44,8 +47,6 @@
                 inputmode="numeric"
                 name="quantity"
                 [(ngModel)]="quantity"
-                #inputQuantity
-                (keyup.arrowup)="inputPrice.setFocus()"
               ></ion-input>
             </ion-item>
 
@@ -62,9 +63,6 @@
                 }"
                 name="priceStr"
                 [(ngModel)]="priceStr"
-                #inputPrice
-                (keyup.arrowup)="inputTrademark.setFocus()"
-                (keyup.arrowdown)="inputQuantity.setFocus()"
               ></ion-input>
             </ion-item>
 
@@ -83,7 +81,8 @@
           lines="none"
         >
           <ion-label class="ion-text-wrap" color="medium"
-            >Informe preço e quantidade e clique em <strong>Calcular</strong></ion-label
+            >Informe preço e quantidade e clique em
+            <strong>Calcular</strong></ion-label
           >
         </ion-item>
 
