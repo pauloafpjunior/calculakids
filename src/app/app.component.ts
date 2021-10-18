@@ -76,7 +76,7 @@ export class AppComponent {
     try {
       await Share.share({
         title: 'CalculaKids',
-        text: 'Economize dinheiro com o aplicativo CalculaKids: ',
+        text: 'Economize com o aplicativo CalculaKids: ',
         url: 'https://calculakids.web.app/',
         dialogTitle: 'Compartilhe com seus amigos',
       });
