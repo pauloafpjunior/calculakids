@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Share } from '@capacitor/share';
 import { Platform } from '@ionic/angular';
-import { Toast } from './services/toast';
 
+import { Product } from './model/product';
+import { Ranking } from './services/ranking';
+import { Toast } from './services/toast';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +12,64 @@ import { Toast } from './services/toast';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  constructor(
+    private toastCtrl: Toast,
+    private ranking: Ranking,
+    private platform: Platform
+  ) {}
 
+  trademark: string = null;
+  priceStr: string = null;
+  quantity: number = null;
+  packages: number = 1;
 
+  products: Product[] = [];
 
-  option: 'individual' | 'kit';
+  customPopoverOptions: any = {
+    message: 'Quantidade de pacotes',
+  };
 
-  constructor(private toastCtrl: Toast, private platform: Platform) {
-    this.option = 'individual';
+  ngOnInit() {
+    this.updateProducts();
   }
 
-  get isIndividual(): boolean {
-    return this.option === 'individual';
+  cleanForm() {
+    this.trademark = null;
+    this.priceStr = null;
+    this.quantity = null;
+    this.packages = 1;
+  }
+
+  updateProducts() {
+    this.products = this.ranking.sortedProducts;
+  }
+
+  async onAdd() {
+    try {
+      const price = Number(this.priceStr.replace('.', '').replace(',', '.'));
+      this.ranking.addProduct(
+        this.trademark,
+        price,
+        this.quantity * this.packages
+      );
+
+      this.cleanForm();
+      this.updateProducts();
+      await this.toastCtrl.showMessage('Adicionado!', 'success');
+    } catch {
+      await this.toastCtrl.showMessage(
+        'Favor informar preço e quantidade!',
+        'error'
+      );
+    }
+  }
+
+  async onRemove(index: number) {
+    this.ranking.remove(index);
+  }
+
+  get theBestOne(): Product {
+    return this.products.length > 0 ? this.products[0] : null;
   }
 
   async share() {
@@ -31,7 +80,6 @@ export class AppComponent {
         url: 'https://calculakids.web.app/',
         dialogTitle: 'Compartilhe com seus amigos',
       });
-
     } catch (error) {
       this.toastCtrl.showMessage('Erro ao compartilhar!', 'error');
     }
