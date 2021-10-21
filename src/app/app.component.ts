@@ -77,7 +77,7 @@ export class AppComponent {
       await Share.share({
         title: 'CalculaKids',
         text: 'Economize com o CalculaKids: ',
-        url: 'https://calculakids.web.app/',
+        url: 'https://calculakids.com',
         dialogTitle: 'Compartilhe com seus amigos',
       });
     } catch (error) {
