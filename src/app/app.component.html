@@ -126,11 +126,10 @@
           </ion-item>
         </ion-list>
 
-        <div class="ion-text-center">
+        <div class="ion-text-center" *ngIf="isShareable">
           <ion-button fill="solid" color="primary" shape="round" (click)="share()">
             <ion-icon name="share-social" slot="start" color="dark"></ion-icon>
-            <ion-text color="dark">Gostou? Então compartilha!!</ion-text> 
-            
+            <ion-text color="dark">Gostou? Então compartilha!!</ion-text>             
           </ion-button>
         </div>
 
