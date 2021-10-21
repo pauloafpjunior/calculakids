@@ -17,7 +17,7 @@ export class Toast {
     const toast = await this.toastCtrl.create(
       {
         message: message,
-        duration: 2000,
+        duration: 2500,
         cssClass: `toast-${type}`,
         buttons: [
           {

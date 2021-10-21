@@ -2,13 +2,13 @@
   <ion-grid class="ion-no-padding">
     <ion-row>
       <ion-col size-lg="4" offset-lg="4">
-        <ion-item lines="none" class="container" color="dark">
+        <ion-item lines="none" class="container" color="primary">
           <ion-label class="ion-text-center title"> Preço por Tira </ion-label>
         </ion-item>
 
         <ion-list lines="none" class="container">
           <form (ngSubmit)="onAdd()">
-            <ion-item class="ion-align-items-center">
+            <ion-item class="ion-align-items-center" color="tertiary">
               <ion-icon
                 name="information-circle-outline"
                 slot="start"
@@ -21,7 +21,7 @@
               ></ion-input>
             </ion-item>
 
-            <ion-item class="ion-align-items-center">
+            <ion-item class="ion-align-items-center" color="tertiary">
               <ion-icon name="layers-outline" slot="start"></ion-icon>
               <ion-label position="floating"> Pacotes </ion-label>
               <ion-select
@@ -40,7 +40,7 @@
               </ion-select>
             </ion-item>
 
-            <ion-item class="ion-align-items-center">
+            <ion-item class="ion-align-items-center" color="tertiary">
               <ion-icon name="apps-outline" slot="start"></ion-icon>
               <ion-label position="floating"> Quantidade por pacote </ion-label>
               <ion-input
@@ -50,7 +50,7 @@
               ></ion-input>
             </ion-item>
 
-            <ion-item class="ion-align-items-center">
+            <ion-item class="ion-align-items-center" color="tertiary">
               <ion-icon name="cash-outline" slot="start"></ion-icon>
               <ion-label position="floating"> Preço total </ion-label>
               <ion-input
@@ -68,7 +68,7 @@
 
             <input type="submit" hidden />
 
-            <ion-button color="warning" expand="block" (click)="onAdd()">
+            <ion-button color="secondary" expand="block" (click)="onAdd()">
               <ion-icon name="calculator-outline" slot="start"></ion-icon>
               Calcular
             </ion-button>
@@ -79,6 +79,7 @@
           class="container ion-text-center"
           *ngIf="products?.length == 0"
           lines="none"
+          color="tertiary"
         >
           <ion-label class="ion-text-wrap" color="medium"
             >Informe preço e quantidade e clique em
@@ -87,22 +88,22 @@
         </ion-item>
 
         <ion-item
-          color="success"
-          class="container ion-align-items-center"
+          color="tertiary"
+          class="thebestonecontainer ion-align-items-center"
           lines="none"
           *ngIf="theBestOne"
         >
           <ion-icon name="trophy-outline" slot="start"></ion-icon>
-          <ion-label class="thebestone">
+          <ion-label class="thebestonetext">
             {{ theBestOne.trademark }}
           </ion-label>
-          <ion-label slot="end" color="light" class="thebestone">
+          <ion-label slot="end" class="thebestonetext">
             R$ {{ theBestOne.pricePerUnit | number: "1.2-2" }}
           </ion-label>
         </ion-item>
 
         <ion-list class="container" lines="none" *ngIf="products?.length > 0">
-          <ion-item *ngFor="let p of products; let i = index">
+          <ion-item *ngFor="let p of products; let i = index" color="tertiary">
             <ion-icon
               name="chevron-forward-circle-outline"
               slot="start"
@@ -125,10 +126,11 @@
           </ion-item>
         </ion-list>
 
-        <div class="container ion-text-center" *ngIf="isShareable">
-          <ion-button fill="clear" color="dark" shape="round" (click)="share()">
-            <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
-            Gostou? Então compartilha!!
+        <div class="ion-text-center">
+          <ion-button fill="solid" color="primary" shape="round" (click)="share()">
+            <ion-icon name="share-social" slot="start" color="dark"></ion-icon>
+            <ion-text color="dark">Gostou? Então compartilha!!</ion-text> 
+            
           </ion-button>
         </div>
 
