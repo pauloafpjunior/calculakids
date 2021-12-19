@@ -64,7 +64,7 @@ export class GiftsComponent {
       await Share.share({
         title: 'CalculaKids',
         text: 'Economize com o CalculaKids: ',
-        url: 'https://calculakids.com',
+        url: 'https://calculakids.com/gifts',
         dialogTitle: 'Compartilhe com seus amigos',
       });
     } catch (error) {
