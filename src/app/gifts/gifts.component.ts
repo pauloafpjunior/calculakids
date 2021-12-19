@@ -29,12 +29,12 @@ export class GiftsComponent {
     {
       image: "gift2.jpg",
       title: "Massinha de modelar caseira",
-      content: "Super fácil de fazer e com ingredientes que vocẽ tem em casa. Use corante alimentício para dar a cor ou se quiser deixar colorido e com cheirinho de fruta, é só acrescentar suco de saquinho. Isso mesmo! Confira a receita no link abaixo. Finalize com uma embalagem bem bonita."
+      content: "Super fácil de fazer e com ingredientes que você tem em casa. Use corante alimentício para dar a cor ou se quiser deixar colorido e com cheirinho de fruta, é só acrescentar suco de saquinho. Isso mesmo! Finalize com uma embalagem bem bonita. Confira a receita completa no vídeo abaixo."
     },
     {
       image: "gift3.jpg",
       title: "Vasinho de ervas",
-      content: "Uma lata bonita ou uma floreira de plástico, você escolhe! Sugestão de plantas: Hortelã, Salsinha, Cebolinha, Manjericão. Acrescente uma plaquinha feita com palito de churrasco e E.V.A (com um pouco de imaginação, pode pensar em outros materiais) com uma frase legal. Sugestão: “Horta da Jú”, “Quem planta amor, colhe felicidade”, “Cultive a Felicidade”."
+      content: "Uma lata bonita ou uma floreira de plástico, você escolhe! Sugestão de plantas: Hortelã, Salsinha, Cebolinha, Manjericão. Acrescente uma plaquinha feita com palito de churrasco e E.V.A. (com um pouco de imaginação, pode pensar em outros materiais) com uma frase legal. Sugestão: “Horta da Jú”, “Quem planta amor, colhe felicidade”, “Cultive a Felicidade”."
     },
     {
       image: "gift4.jpg",
@@ -63,7 +63,7 @@ export class GiftsComponent {
     try {
       await Share.share({
         title: 'CalculaKids',
-        text: 'Economize com o CalculaKids: ',
+        text: '5 ideias de presentes baratos e especiais: ',
         url: 'https://calculakids.com/gifts',
         dialogTitle: 'Compartilhe com seus amigos',
       });
