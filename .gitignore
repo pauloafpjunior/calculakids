@@ -33,3 +33,7 @@ npm-debug.log*
 /.firebase
 .firebaserc
 firebase.json
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

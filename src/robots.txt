@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://calculakids.com/sitemap.xml
