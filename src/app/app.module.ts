@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {
   PreloadAllModules,
@@ -17,11 +16,21 @@ import {
   provideAnalytics,
   getAnalytics,
   ScreenTrackingService,
-  UserTrackingService,
 } from '@angular/fire/analytics';
 import { environment } from 'src/environments/environment';
+import { HomeComponent } from './home/home.component';
+import { NgModule } from '@angular/core';
+import { GiftsComponent } from './gifts/gifts.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'gifts',
+    component: GiftsComponent
+  },
   {
     path: '**',
     redirectTo: '',
@@ -29,7 +38,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, GiftsComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

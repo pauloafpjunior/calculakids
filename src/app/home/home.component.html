@@ -3,7 +3,7 @@
     <ion-row>
       <ion-col size-lg="4" offset-lg="4">
         <ion-item lines="none" class="container" color="primary">
-          <ion-label class="ion-text-center title"> Preço por Tira </ion-label>
+          <ion-label class="ion-text-center title"> Calcula Kids </ion-label>
         </ion-item>
 
         <ion-list lines="none" class="container">
@@ -73,11 +73,8 @@
               Calcular
             </ion-button>
           </form>
-        </ion-list>
-
-        <ion-item
-          class="container ion-text-center"
-          *ngIf="products?.length == 0"
+          <ion-item
+          class="ion-text-center"
           lines="none"
           color="tertiary"
         >
@@ -86,6 +83,9 @@
             <strong>Calcular</strong></ion-label
           >
         </ion-item>
+        </ion-list>
+
+        
 
         <ion-item
           color="tertiary"
@@ -125,6 +125,14 @@
             </ion-button>
           </ion-item>
         </ion-list>
+
+        <div class="ion-text-center">
+          <ion-button color="light" shape="round" routerLink="/gifts">
+            <ion-icon name="gift" slot="start"></ion-icon>
+            <ion-text class="ion-text-wrap"><strong>Veja:</strong> 5 ideias de presentes baratos e especiais
+            </ion-text></ion-button>
+
+        </div>
 
         <div class="ion-text-center" *ngIf="isShareable">
           <ion-button fill="solid" color="primary" shape="round" (click)="share()">

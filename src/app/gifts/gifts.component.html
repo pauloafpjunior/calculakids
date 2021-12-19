@@ -1,0 +1,48 @@
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size-lg="4" offset-lg="4">
+
+        <ion-item lines="none" class="container" color="primary">
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button color="dark" shape="round" (click)="share()">
+              <ion-icon name="share-social-outline" slot="start"></ion-icon>
+              <ion-text>Compartilhar</ion-text>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+        <div class="ion-text-center container">
+          <ion-button shape="round" [fill]="getFill(1)" color="primary" (click)="gift = 1">1</ion-button>
+          <ion-button shape="round" [fill]="getFill(2)" color="primary" (click)="gift = 2">2</ion-button>
+          <ion-button shape="round" [fill]="getFill(3)" color="primary" (click)="gift = 3">3</ion-button>
+          <ion-button shape="round" [fill]="getFill(4)" color="primary" (click)="gift = 4">4</ion-button>
+          <ion-button shape="round" [fill]="getFill(5)" color="primary" (click)="gift = 5">5</ion-button>
+        </div>
+        <ion-card class="container">
+          <ion-img src='assets/images/{{currentGift.image}}'></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>{{gift}}/5</ion-card-subtitle>
+            <ion-card-title><strong>{{currentGift.title}}</strong></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{currentGift.content}}
+
+            <div class="ion-text-center">
+              <ion-button size="small" expand="block" *ngIf="gift == 2" href="https://youtu.be/whV71bJiVh4" target="_blank" fill="clear">
+                <ion-icon name="logo-youtube" slot="start"></ion-icon>
+                Vídeo massinha
+              </ion-button>
+    
+            </div>
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
