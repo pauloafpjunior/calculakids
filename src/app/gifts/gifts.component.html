@@ -7,7 +7,7 @@
           <ion-buttons slot="start">
             <ion-back-button defaultHref="home"></ion-back-button>
           </ion-buttons>
-          <ion-buttons slot="end">
+          <ion-buttons slot="end" *ngIf="isShareable">
             <ion-button color="dark" shape="round" (click)="share()">
               <ion-icon name="share-social-outline" slot="start"></ion-icon>
               <ion-text>Compartilhar</ion-text>
