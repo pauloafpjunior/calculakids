@@ -20,6 +20,7 @@ export class HomeComponent {
 
   trademark: string = null;
   priceStr: string = null;
+  shippingStr: string = null;
   quantity: number = null;
   packages: number = 1;
 
@@ -36,6 +37,7 @@ export class HomeComponent {
   cleanForm() {
     this.trademark = null;
     this.priceStr = null;
+    this.shippingStr = null;
     this.quantity = null;
     this.packages = 1;
   }
@@ -47,16 +49,17 @@ export class HomeComponent {
   async onAdd() {
     try {
       const price = Number(this.priceStr.replace('.', '').replace(',', '.'));
+      const shipping = this.shippingStr && this.shippingStr.trim() != "" ? Number(this.shippingStr.replace('.', '').replace(',', '.')):0;
       this.ranking.addProduct(
         this.trademark,
-        price,
+        price + shipping,
         this.quantity * this.packages
       );
 
       this.cleanForm();
       this.updateProducts();
       await this.toastCtrl.showMessage('Adicionado!', 'success');
-    } catch {
+    } catch(err) {
       await this.toastCtrl.showMessage(
         'Informe preço e quantidade!',
         'error'

@@ -66,6 +66,22 @@
               ></ion-input>
             </ion-item>
 
+            <ion-item class="ion-align-items-center" color="tertiary">
+              <ion-icon name="car-outline" slot="start"></ion-icon>
+              <ion-label position="floating"> Frete (opcional) </ion-label>
+              <ion-input
+                inputmode="numeric"
+                [brmasker]="{
+                  money: true,
+                  thousand: '.',
+                  decimalCaracter: ',',
+                  decimal: 2
+                }"
+                name="shippingStr"
+                [(ngModel)]="shippingStr"
+              ></ion-input>
+            </ion-item>
+
             <input type="submit" hidden />
 
             <ion-button color="secondary" expand="block" (click)="onAdd()">
